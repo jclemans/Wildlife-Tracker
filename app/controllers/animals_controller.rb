@@ -6,6 +6,7 @@ class AnimalsController < ApplicationController
   end
 
   def show
+    @regions = Region.all
     @animal = Animal.find(params[:id])
     render('animals/show.html.erb')
   end

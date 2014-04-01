@@ -1,3 +1,5 @@
 class Sighting < ActiveRecord::Base
-  validate :animal_id, :presence => true
+  validates :animal_id, :presence => true
+  belongs_to :animal
+  belongs_to :region
 end

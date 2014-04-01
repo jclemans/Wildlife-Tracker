@@ -6,6 +6,21 @@
       data-method="delete"
       rel="nofollow">Destroy animal</a></p>
 
-<p>More information on <%= @animal.name %> coming soon!</p>
+<h3>Known Sightings</h3>
+<!-- list sightings here -->
+<!-- <form action="/animals/<%= @animal.id %>/sightings" method="post">
+  <input id="animal_id" name="sighting[animal_id]" type="hidden" value="<%= @animal.id %>">
+  <label for="region_name">Habitat</label>
+  <input id="region_name" name="region[name]" type="text">
+  <button>Add Animal Sighting</button>
+</form> -->
+<form action="/animals/<%= @animal.id %>/sightings" method="post">
+  <select name="name">
+    <% @regions.each do |region| %>
+      <option value="<%= region.name %>"><%= region.name %></option>
+    <% end %>
+  </select>
+  <button>Add Animal Sighting</button>
+</form>
 
 <p>Click to go back to the <a href="/animals">animals page</a> or go to the <a href="/regions">regions page</a></p>
