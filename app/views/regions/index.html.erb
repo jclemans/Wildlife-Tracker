@@ -1,0 +1,13 @@
+<h1>Mythical Animal Habitat Regions</h1>
+
+<form action="/regions" method="post">
+  <label for="region_name">Region Name</label>
+  <input id="region_name" name="region[name]" type="text">
+  <button>Add Habitat</button>
+</form>
+
+<ul>
+  <% @regions.each do |region| %>
+    <li><a href="/regions/<%= region.id %>"><%= region.name %></a></li>
+  <% end %>
+</ul>

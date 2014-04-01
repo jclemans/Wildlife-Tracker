@@ -22,8 +22,11 @@ class AnimalsController < ApplicationController
 
   def update
     @animal = Animal.find(params[:id])
-    @animal.update(params[:animal])
-    redirect_to('/animals')
+    if @animal.update(params[:animal])
+      redirect_to('/animals')
+    else
+      render('animals/edit.html.erb')
+    end
   end
 
   def destroy
