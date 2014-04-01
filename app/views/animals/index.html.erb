@@ -1,0 +1,13 @@
+<h1>Animals List</h1>
+
+<form action="/animals" method="post">
+  <label for="animal_name">Animal Name</label>
+  <input id="animal_name" name="animal[name]" type="text">
+  <button>Add Animal</button>
+</form>
+
+<ul>
+  <% @animals.each do |animal| %>
+    <li><a href="/animals/<%= animal.id %>"><%= animal.name %></a></li>
+  <% end %>
+</ul>
