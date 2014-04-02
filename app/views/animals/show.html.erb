@@ -7,20 +7,22 @@
       rel="nofollow">Destroy animal</a></p>
 
 <h3>Known Sightings</h3>
-<!-- list sightings here -->
-<!-- <form action="/animals/<%= @animal.id %>/sightings" method="post">
-  <input id="animal_id" name="sighting[animal_id]" type="hidden" value="<%= @animal.id %>">
-  <label for="region_name">Habitat</label>
-  <input id="region_name" name="region[name]" type="text">
-  <button>Add Animal Sighting</button>
-</form> -->
-<form action="/animals/<%= @animal.id %>/sightings" method="post">
-  <select name="name">
+
+<form action="/sightings" method="post">
+  <input name="sighting[animal_id]" type="hidden" value="<%= @animal.id %>">
+  <select name="sighting[region_id]">
     <% @regions.each do |region| %>
-      <option value="<%= region.name %>"><%= region.name %></option>
+      <option value="<%= region.id %>"><%= region.name %></option>
     <% end %>
   </select>
   <button>Add Animal Sighting</button>
 </form>
+
+<ol>
+  <% @sightings.each do |sighting| %>
+    <li><a href="/regions/<%= sighting.region.id %>"><%= sighting.region.name %></a></li>
+      <p class="time"><a href="/sightings/<%= sighting.id %>/edit"><%= sighting.created_at %></a></p>
+  <% end %>
+</ol>
 
 <p>Click to go back to the <a href="/animals">animals page</a> or go to the <a href="/regions">regions page</a></p>

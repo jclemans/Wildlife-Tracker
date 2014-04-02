@@ -6,11 +6,11 @@
   <button>Add Animal</button>
 </form>
 
-<h3>Click here for the <a href="/regions">Habitat Page</a></h3>
-
 <ul>
   <% @animals.each do |animal| %>
     <li><a href="/animals/<%= animal.id %>"><%= animal.name %></a></li>
   <% end %>
 </ul>
 
+
+<p>Click here for the <a href="/regions">Habitat Page</a><br> Click here for the <a href="/sightings">Sightings Page</a></p>

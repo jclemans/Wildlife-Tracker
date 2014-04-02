@@ -1,0 +1,27 @@
+<h1>Mythical Animal Sightings</h1>
+
+<h2>Sort your Sightings</h2>
+
+<form action="/sightings/sort" method="get">
+  <label for="sightings_start_date">Start date</label>
+  <input id="sightings_start_date" name="sighting[start_date]" type="text">
+  <label for="sightings_end_date">End date</label>
+  <input id="sightings_end_date" name="sighting[end_date]" type="text">
+  <button>Run report</button>
+</form>
+
+<h3>Sorted Sightings</h3>
+<% if @sorted_sightings != nil %>
+  <ul>
+    <% @sorted_sightings.each do |sighting| %>
+      <li><%= sighting.animal.name %> @ <a href="/sightings/<%= sighting.id %>"><%= sighting.created_at %></a></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h2>All sightings</h2>
+<ul>
+  <% @sightings.each do |sighting| %>
+    <li><%= sighting.animal.name %> @ <a href="/sightings/<%= sighting.id %>"><%= sighting.created_at %></a></li>
+  <% end %>
+</ul>

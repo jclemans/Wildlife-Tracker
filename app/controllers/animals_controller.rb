@@ -8,6 +8,7 @@ class AnimalsController < ApplicationController
   def show
     @regions = Region.all
     @animal = Animal.find(params[:id])
+    @sightings = @animal.sightings
     render('animals/show.html.erb')
   end
 

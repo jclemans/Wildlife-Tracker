@@ -6,6 +6,13 @@
       data-method="delete"
       rel="nofollow">Destroy region</a></p>
 
-<p>More information on <%= @region.name %> coming soon!</p>
+<h3>Known Sightings</h3>
+
+<ol>
+  <% @sightings.each do |sighting| %>
+    <li><a href="/animals/<%= sighting.animal.id %>/"><%= sighting.animal.name %></a></li>
+      <p class="time"><a href="/sightings/<%= sighting.id%>/edit"><%= sighting.created_at %></a></p>
+  <% end %>
+</ol>
 
 <p>Click to go to the <a href="/animals">animals page</a> or back to the <a href="/regions">regions page</a></p>

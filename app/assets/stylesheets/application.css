@@ -11,3 +11,19 @@
  *= require_self
  *= require_tree .
  */
+.time {
+  font-size: 0.75em;
+}
+
+a:link {
+  text-decoration: none;
+  color: steelblue;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: orange;
+}
